@@ -1,21 +1,29 @@
-# Monitoring Stack: Prometheus + Grafana + Loki
+# Monitoring Stack: Prometheus + Grafana + Loki + Promtail
 
-A complete observability stack for metrics and logs using Docker Compose.
+A complete observability stack for metrics and logs using Docker Compose — now with **log streaming from a Flask app to Loki** using **Promtail**.
 
 ## 📊 What's Included
 
-- **Prometheus** — Metrics collection (scrapes targets)
+- **Prometheus** — Metrics collection
 - **Grafana** — Dashboards and visualization
 - **Loki** — Log aggregation
+- **Promtail** — Log shipping from Docker container to Loki
+- **Flask App** — Demo Python app with logging
 
 ## 🧱 Project Structure
 
 monitoring-stack/
-├── docker-compose.yml
+├── app/ # Flask app with logging
+│ ├── app.py
+│ └── requirements.txt
+├── docker-compose.yml # Defines all services
+├── Dockerfile # Builds the Flask app container
 ├── prometheus/
-│ └── prometheus.yml # Prometheus scrape config
+│ └── prometheus.yml
 ├── loki/
-│ └── config.yaml # Loki log storage config
+│ └── config.yaml
+├── promtail/
+│ └── config.yaml
 └── README.md
 
 yaml
@@ -31,7 +39,9 @@ Edit
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
-### Run the stack
+---
+
+### 🛠️ Run the Stack
 
 ```bash
 docker-compose up --build
@@ -44,6 +54,22 @@ Login: admin / admin
 
 Loki API: http://localhost:3100
 
+📋 Log Streaming from Flask App
+Logs from the Flask app are:
+
+Written to /var/log/flask/app.log inside the container
+
+Mounted and read by Promtail
+
+Shipped to Loki
+
+Queryable in Grafana
+
+Example Log Query in Grafana Explore
+logql
+Copy
+Edit
+{job="flask"}
 ⚙️ Setup in Grafana
 Add Data Sources
 Prometheus
@@ -54,22 +80,17 @@ Loki
 
 URL: http://loki:3100
 
-Create Dashboards
-Build metrics panels (CPU, memory, uptime)
-
-Use Loki to view logs from connected services
-
-🧼 Stopping the Stack
+🔁 To Tear Down
 bash
 Copy
 Edit
 docker-compose down
-📦 Future Enhancements
-Forward logs from a Flask app to Loki using promtail
+🔮 Future Ideas
+Add log labels per container/service
 
-Set up alerting with Prometheus Alertmanager
+Push metrics to cloud (e.g., Grafana Cloud)
 
-Push to production cluster with Kubernetes
+Add Alertmanager integration
 
 🙌 Author
-ViorelH — Monitoring stack project for DevOps portfolio
+ViorelH — DevOps Portfolio Project 5: Monitoring Stack with Metrics + Logs

@@ -24,3 +24,11 @@ services:
     depends_on:
       - prometheus
       - loki
+  promtail:
+    image: grafana/promtail:2.9.2
+    volumes:
+      - ./promtail/config.yaml:/etc/promtail/config.yaml
+      - /var/log:/var/log  # reads from host logs
+    command: -config.file=/etc/promtail/config.yaml
+    depends_on:
+      - loki
