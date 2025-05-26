@@ -26,10 +26,6 @@ monitoring-stack/
 │ └── config.yaml
 └── README.md
 
-yaml
-Copy
-Edit
-
 ---
 
 ## 🚀 Getting Started
@@ -43,7 +39,6 @@ Edit
 
 ### 🛠️ Run the Stack
 
-```bash
 docker-compose up --build
 🌐 Access Services
 Prometheus: http://localhost:9090
@@ -66,9 +61,7 @@ Shipped to Loki
 Queryable in Grafana
 
 Example Log Query in Grafana Explore
-logql
-Copy
-Edit
+
 {job="flask"}
 ⚙️ Setup in Grafana
 Add Data Sources
@@ -81,9 +74,7 @@ Loki
 URL: http://loki:3100
 
 🔁 To Tear Down
-bash
-Copy
-Edit
+
 docker-compose down
 🔮 Future Ideas
 Add log labels per container/service
