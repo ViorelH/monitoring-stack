@@ -2,7 +2,7 @@
 
 A complete observability stack for metrics and logs using Docker Compose — now with **log streaming from a Flask app to Loki** using **Promtail**.
 
-## 📊 What's Included
+##  What's Included
 
 - **Prometheus** — Metrics collection
 - **Grafana** — Dashboards and visualization
@@ -10,7 +10,7 @@ A complete observability stack for metrics and logs using Docker Compose — now
 - **Promtail** — Log shipping from Docker container to Loki
 - **Flask App** — Demo Python app with logging
 
-## 🧱 Project Structure
+##  Project Structure
 
 monitoring-stack/
 ├── app/ # Flask app with logging
@@ -28,7 +28,7 @@ monitoring-stack/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -37,10 +37,10 @@ monitoring-stack/
 
 ---
 
-### 🛠️ Run the Stack
+### 🛠 Run the Stack
 
 docker-compose up --build
-🌐 Access Services
+ Access Services
 Prometheus: http://localhost:9090
 
 Grafana: http://localhost:3000
@@ -49,7 +49,7 @@ Login: admin / admin
 
 Loki API: http://localhost:3100
 
-📋 Log Streaming from Flask App
+ Log Streaming from Flask App
 Logs from the Flask app are:
 
 Written to /var/log/flask/app.log inside the container
@@ -63,7 +63,7 @@ Queryable in Grafana
 Example Log Query in Grafana Explore
 
 {job="flask"}
-⚙️ Setup in Grafana
+ Setup in Grafana
 Add Data Sources
 Prometheus
 
@@ -73,10 +73,11 @@ Loki
 
 URL: http://loki:3100
 
-🔁 To Tear Down
+ To Tear Down
 
 docker-compose down
-🔮 Future Ideas
+
+ Future Ideas
 Add log labels per container/service
 
 Push metrics to cloud (e.g., Grafana Cloud)
