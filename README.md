@@ -37,7 +37,7 @@ monitoring-stack/
 
 ---
 
-### 🛠 Run the Stack
+###  Run the Stack
 
 docker-compose up --build
  Access Services
@@ -84,5 +84,5 @@ Push metrics to cloud (e.g., Grafana Cloud)
 
 Add Alertmanager integration
 
-🙌 Author
+ Author
 ViorelH — DevOps Portfolio Project 5: Monitoring Stack with Metrics + Logs
